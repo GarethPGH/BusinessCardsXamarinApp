@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Xamarin.Forms;
 
 namespace Business_Card.UWP
 {
@@ -21,7 +22,7 @@ namespace Business_Card.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new Business_Card.App());
+            this.LoadApplication(new Business_Card.Forms.App());
         }
     }
 }

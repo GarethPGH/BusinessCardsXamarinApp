@@ -10,8 +10,7 @@ namespace Business_Card
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new Business_Card.Index();
         }
 
         protected override void OnStart()

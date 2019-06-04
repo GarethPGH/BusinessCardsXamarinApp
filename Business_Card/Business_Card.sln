@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Card.iOS", "Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Card.UWP", "Business_Card\Business_Card.UWP\Business_Card.UWP.csproj", "{EA20C865-5745-4991-8993-6FDBE8E93FA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business_Card", "Business_Card\Business_Card\Business_Card.csproj", "{13BB4943-A6D3-4173-A7DF-CD22D07FD02C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business_Card", "Business_Card\Business_Card\Business_Card.csproj", "{13BB4943-A6D3-4173-A7DF-CD22D07FD02C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

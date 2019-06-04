@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Business_Card.ViewModel"
+             x:Class="Business_Card.Xaml.Index">
+ 
+    <!--Likelyborked ></!-->
+    <Button Text="Push Me" Command="{Binding AddCardsCommand}"></Button>
+
+    <ListView x:Name="BusinessCards" ItemsSource="{Binding BusinessCards}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="{Binding CompanyName}" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="{Binding Email}" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="{Binding PhoneNumber}" FontSize="Medium" TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>

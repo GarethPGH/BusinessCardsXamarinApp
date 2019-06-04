@@ -10,10 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Business_Card.UWP\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Business_Card\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Business_Card\Xaml\Index.xaml.cs">
+      <DependentUpon>Index.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Xaml\BusinessCardPage.xaml.cs">
       <DependentUpon>BusinessCardPage.xaml</DependentUpon>
     </Compile>
