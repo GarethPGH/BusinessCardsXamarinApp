@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Business_Card.Model;
+using Business_Card.ViewModel;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Business_Card
@@ -10,12 +12,14 @@ namespace Business_Card
         public App()
         {
             InitializeComponent();
-            MainPage = new Business_Card.Index();
+
+            MainPage = new ContentPage();
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            var NewBusinessCardPage = new BusinessCardViewModel();
+         
         }
 
         protected override void OnSleep()

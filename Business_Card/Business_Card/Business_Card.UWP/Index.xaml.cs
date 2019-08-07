@@ -12,17 +12,16 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Xamarin.Forms;
 
 namespace Business_Card.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class Index
     {
-        public MainPage()
+        public Index()
         {
             this.InitializeComponent();
 
-            this.LoadApplication(new Business_Card.Forms.App());
+            LoadApplication(new Business_Card.App());
         }
     }
 }

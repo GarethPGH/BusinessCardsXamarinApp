@@ -5,48 +5,77 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Business_Card.Model;
 using Xamarin.Forms;
+using System.Collections.Generic;
+using System.Windows.Input;
+using System.Diagnostics;
+using System.Linq;
 
-public delegate void AddBusinessCardsDelegate(List<BusinessCard> Cards);
+
 
 namespace Business_Card.ViewModel
 {
-
-    public class BusinessCardViewModel : INotifyPropertyChanged
+    
+    public partial class BusinessCardViewModel : INotifyPropertyChanged
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        private List<BusinessCard> businessCards;
 
-        
+        public BusinessCardViewModel() { }
+
+      //  public ICommand AddCardsCommand { private get; set; }
+
+        new public event PropertyChangedEventHandler PropertyChanged;
+
+        public List<BusinessCard> Business_Cards
+        {
+            get { if (businessCards == null) {
+                    businessCards = new List<BusinessCard>();
+                    return businessCards;
+                        }
+                else
+                {
+                    return businessCards;
+                }
+            }
+            set { SetProperty(ref businessCards, value); }
+        }
 
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (Object.Equals(storage, value))
+            {
                 return false;
-
-            storage = value;
-            OnPropertyChanged(propertyName);
-            return true;
+            }
+            else
+            {
+                storage = value;
+                OnPropertyChanged(propertyName);
+                return true;
+            }
         }
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-     
 
-        public BusinessCardViewModel() {
-            List<BusinessCard> BusinessCards = new List<BusinessCard>();
-            var FillCards = new AddBusinessCardsDelegate(AddCards(BusinessCards));
-            PropertyChanged();
-        }
-
-        public static void AddCards(ObservableCollection<BusinessCard> Cards)
+        public List<BusinessCard> AddCardsToBusinessCardList()
         {
-            foreach (BusinessCard card in Cards)
+            //This is still returning null and can not be null
+            int isEmpty = businessCards.Count();
+            if (isEmpty == 0)
             {
-                Cards.Add(card);
+                MockDataClass InitMockData = new MockDataClass();
+                
+                foreach(BusinessCard Card in InitMockData)
+                {
+                    businessCards.Add(Card);
+                }
             }
+            return businessCards;
         }
+
     }
 }
+
 

@@ -10,21 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
+    <PackageReference Include="Xamarin.Forms.Mocks" Version="3.5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Business_Card.UWP\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Business_Card\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Business_Card\Xaml\Index.xaml.cs">
-      <DependentUpon>Index.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Xaml\BusinessCardPage.xaml.cs">
       <DependentUpon>BusinessCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Xaml\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -36,4 +31,5 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
 </Project>

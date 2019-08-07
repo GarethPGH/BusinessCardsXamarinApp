@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Business_Card;
+using Xamarin.Forms.Xaml;
 
 namespace Business_Card.UWP
 {
@@ -31,7 +31,6 @@ namespace Business_Card.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-           
         }
 
         /// <summary>
@@ -70,7 +69,7 @@ namespace Business_Card.UWP
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(Business_Card.MainPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

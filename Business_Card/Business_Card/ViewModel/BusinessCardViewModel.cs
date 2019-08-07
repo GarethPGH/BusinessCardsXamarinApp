@@ -5,35 +5,18 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using Business_Card.Model;
 using Xamarin.Forms;
-using System.Collections.Generic;
-using System.Windows.Input;
-using System.Diagnostics;
 
-
+public delegate void AddBusinessCardsDelegate(List<BusinessCard> Cards);
 
 namespace Business_Card.ViewModel
 {
-    
+
     public class BusinessCardViewModel : INotifyPropertyChanged
     {
 
-        private List<BusinessCard> businessCards;
-        bool isEditing;
-        public ICommand AddCardsCommand { private get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<BusinessCard> BusinessCards
-        {
-            get { return BusinessCards; }
-            set { SetProperty(ref businessCards, value); }
-        }
-
-        public bool IsEditing
-        {
-            private set { SetProperty(ref isEditing, value); }
-            get { return isEditing; }
-        }
+        
 
         bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
@@ -49,14 +32,21 @@ namespace Business_Card.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+     
 
-   
-        public BusinessCardViewModel()
-        {
-            businessCards = new List<BusinessCard>();
+        public BusinessCardViewModel() {
+            List<BusinessCard> BusinessCards = new List<BusinessCard>();
+            var FillCards = new AddBusinessCardsDelegate(AddCards(BusinessCards));
+            PropertyChanged();
         }
 
+        public static void AddCards(ObservableCollection<BusinessCard> Cards)
+        {
+            foreach (BusinessCard card in Cards)
+            {
+                Cards.Add(card);
+            }
+        }
     }
 }
-
 

@@ -8,12 +8,14 @@ namespace Business_Card.Model
 {
     public class BusinessCard : INotifyPropertyChanged
     {
+        string name;
+        string companyname;
+        string email;
+        string phonenumber;
+        string cardurl;
+
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this,
-              new PropertyChangedEventArgs(propertyName));
-        }
+
         public string Name
         {
             get
@@ -22,8 +24,7 @@ namespace Business_Card.Model
             }
             set
             {
-                Name = value;
-                OnPropertyChanged();
+                SetProperty(ref name, value);
             }
         }
 
@@ -35,8 +36,7 @@ namespace Business_Card.Model
             }
             set
             {
-                CompanyName = value;
-                OnPropertyChanged();
+                SetProperty(ref companyname, value);
             }
         }
 
@@ -48,8 +48,7 @@ namespace Business_Card.Model
             }
             set
             {
-                Email = value;
-                OnPropertyChanged();
+                SetProperty(ref email, value);
             }
         }
 
@@ -61,8 +60,7 @@ namespace Business_Card.Model
             }
             set
             {
-                PhoneNumber = value;
-                OnPropertyChanged();
+                SetProperty(ref phonenumber, value);
             }
         }
 
@@ -74,9 +72,27 @@ namespace Business_Card.Model
             }
             set
             {
-                CardURL = value;
-                OnPropertyChanged();
+                SetProperty(ref cardurl, value);
             }
+        }
+
+        bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (Object.Equals(storage, value))
+            {
+                return false;
+            }
+            else
+            {
+                storage = value;
+                OnPropertyChanged(propertyName);
+                return true;
+            }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

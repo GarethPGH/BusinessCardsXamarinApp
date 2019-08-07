@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace Business_Card
 {
-    public partial class MainPage : ContentPage
+    public partial class Index : ContentPage
     {
-        public MainPage()
+        public Index()
         {
             InitializeComponent();
         }
